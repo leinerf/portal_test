@@ -1,0 +1,19 @@
+<% include ./partials/header.ejs %>
+<div class="form-container" style="padding: 1%">
+	
+	<%if(typeof msg !== "undefined"){%>
+		<p style="background:#FFCCCB;padding: 1%;border-radius: 5px"><%=msg %></p>	
+	<%}%>
+	<header>Registration</header>
+	<br>
+	<form class="form" method="post" action="/auth/register">
+		<p class="email-header">Email</p>
+		<input type="email" name="email" placeholder="www.example@email.com" required><br>
+		<p class="password-header">Password</p>
+		<input type="password" name="password" placeholder="password">
+		<br>
+		<input type="submit" name="submit">
+	</form>
+</div>
+
+<% include ./partials/footer.ejs %>

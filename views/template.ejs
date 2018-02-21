@@ -1,0 +1,23 @@
+<% include partials/header.ejs %>
+<div class="container">
+	<div   data-editable data-name="main-header" class="container-header">
+		<% if(RegExp(/(<([^>]+)>)/ig).test(page.title)){ %>
+			<%- page.title %>
+		<%} else {%>
+			<p><%= page.title %></p>
+		<%}%>
+	</div>
+	<hr>
+	<div data-editable data-name="main-content" class="container-paragraph">
+		<%- page.content %>
+	</div>
+</div>
+<script type="text/javascript">
+	var title =  `<%- page.title %>`;
+	var url = "<%= page.url %>";
+	var id = "<%= page.id %>";
+	var content = `<%- page.content %>`;
+</script>	
+<script src="/content-tools.min.js"></script>
+<script src="/editor.js"></script>
+<% include partials/footer.ejs %>

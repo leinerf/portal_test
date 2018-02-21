@@ -1,0 +1,19 @@
+
+<% include partials/header %>
+
+<div class="edit-container">
+	<header class="edit-header">Template Content</header>
+	<br>
+	<form class="form" method="post" action="/admin/addpage/<%= user_id %>">
+		<p class="email-header">Title</p>
+		<input type="text" name="title" placeholder="Title" required><br>
+		<p class="email-header">Content</p>
+		<textarea class="edit-textarea" name="content" placeholder="content" required></textarea>
+		<p class="email-header">URL</p>
+		<input type="text" name="url" placeholder="URL" required>
+		<br>
+		<button class="template-choice">Template Choice</button> 
+		<input class="edit-submit" type="submit" name="submit">
+	</form>
+</div>
+<% include partials/footer %>

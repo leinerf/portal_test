@@ -1,0 +1,47 @@
+<!-- 
+	Table
+	pages
+	add page 
+<!DOCTYPE html>	title up<buttond options (delete edit visibilities)>delete</button> title up<buttond options (delete edit visibilities)>delete</button> title up<
+-->
+
+<% include partials/header %>
+
+<div class="dashboard-container">
+<div class="header-content">
+	<header class="table-header">Table of Templates</header>
+</div>			
+<table class="table-container">
+	
+<thead class="dashboard-header">
+	<th>Title</th>
+	<th>Updated</th>
+	<th>Options</th>
+</thead>
+<tbody>
+<%pages.forEach(function(page){ %>
+	<tr>
+		
+			<td>
+				<%= page.title %>
+			</td>
+			<td>
+				<%= moment(page.date).format( 'MMM-DD-YYYY HH:mm:ss') %>
+				
+			</td>
+			<td>		
+				<form>
+				<button formaction="/showpage/<%= page.id %>" formmethod="get" class="show"> show</button>
+				</form
+			</td>
+		
+
+	</tr>
+<%});%>			
+</tbody>
+<tfoot>
+	
+</tfoot>
+</table>
+</div>
+<% include partials/footer %>

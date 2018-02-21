@@ -1,0 +1,23 @@
+<% include ./partials/header.ejs %>
+
+
+<div class="form-container">
+	<%if(typeof error !== "undefined"){%>
+		<p style="background:#FFCCCB;padding: 1%;border-radius: 5px"><%=error %></p>	
+	<%}%>
+	<header>Login</header>
+	<br>
+	<form class="form" method="post" action="/auth/login">
+		<p class="email-header">Email</p>
+		<input type="email" name="email" placeholder="www.example@email.com" required><br>
+		<p class="password-header">Password</p>
+		<input type="password" name="password" placeholder="password">
+		<br>
+		<input type="submit" name="submit">
+		
+	</form>
+	<a href="/auth/register" class="register">Don't have a password?</a>
+</div>
+
+
+<% include ./partials/footer.ejs %>

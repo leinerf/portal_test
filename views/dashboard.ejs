@@ -1,0 +1,173 @@
+<!-- 
+	Table
+	pages
+	add page 
+<!DOCTYPE html>	title up<buttond options (delete edit visibilities)>delete</button> title up<buttond options (delete edit visibilities)>delete</button> title up<
+-->
+
+<% include partials/header %>
+<div id="overlay"></div>
+<div id="popup">
+    <div class="popupcontrols">
+        <span id="popupclose">X</span>
+    </div>
+    <div class="popupcontent">
+        <form class="form" ><!-- // action="/admin/addpage/<%= user_id %>">-->
+            <p class="email-header">Title</p>
+            <input type="text" name="title" placeholder="Title" required><br>
+            <p class="email-header">Content</p>
+            <textarea>Something</textarea>
+            <p class="email-header">URL</p>
+            <input type="text" name="url" placeholder="URL" required>
+            <br>
+            <button class="template-choice">Template Choice</button>
+            <input  class="edit-submit" type="submit" name="submit">
+        </form>
+    </div>
+</div>
+<div class="dashboard-container">
+<div class="header-content">
+	<header class="table-header">Table of Templates</header>
+	<button id="button">Add Pages</button>
+</div>
+
+<table class="table-container">
+	
+<thead class="dashboard-header">
+	<th>Title</th>
+	<th>Updated</th>
+	<th>Options</th>
+</thead>
+<tbody>
+<%pages.forEach(function(page){ %>
+	<tr>
+		
+			<td>
+				<%= page.title.replace( /(<([^>]+)>)/ig,""); %>
+			</td>
+			<td>
+				<%= moment(page.date).format( 'MMM-DD-YYYY HH:mm:ss') %>
+				
+			</td>
+			<td>
+                <button class="delete" data-field-id="<%= page.id %>">delete</button>
+				<% if(page.visible === true){%>
+					<button data-field-id="<%= page.id %>" class="visible" style="background: white;">visible</button>
+				<% } else { %>
+					<button data-field-id="<%= page.id %>" class="visible"  style="background: gray;">visible</button>
+				<% }%>
+                <form>
+				<button formaction="/admin/editpage/<%= page.id %>" formmethod="get" class="edit"> edit</button>
+				<button formaction="/admin/showpage/<%= page.id %>" formmethod="get" class="show"> show</button>
+
+				</form>
+			</td>
+		
+
+	</tr>
+<%});%>			
+</tbody>
+<tfoot>
+	
+</tfoot>
+</table>
+</div>
+<script type="text/javascript" >
+
+    // Initialize Variables
+    var closePopup = document.getElementById("popupclose");
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+    var button = document.getElementById("button");
+    // Close Popup Event
+    closePopup.onclick = function() {
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+    };
+    // Show Overlay and Popup
+    button.onclick = function() {
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+    }
+
+	//create the delete button to delete the row if clicked
+	$("table").on("click",".delete",function(){
+		console.log("delete is")
+		var button = $(this);
+		var pageId = $(this).attr("data-field-id");
+        $.ajax({
+			method:"DELETE",
+			url:"/admin/delete/"+ pageId
+
+		})
+		.done(function( json ) {
+			button.parent().parent().remove();
+		});
+	});
+    $("table").on("click",".visible",function(){
+        var button = $(this);
+        var pageId = $(this).attr("data-field-id");
+        $.ajax({
+            method:"PUT",
+            url:"/admin/visible/"+ pageId
+
+        })
+            .done(function( json ) {
+                if(json.visible){
+                    button[0].style.background = "white";
+				}
+				else{
+                    button[0].style.background = "gray";
+				}
+            });
+    });
+
+
+	$(".form").submit(function(event){
+		event.preventDefault();//makes it so that the form doesnt send
+		var formData = {
+			title: $("input[name=title]").val(),
+			content: tinyMCE.activeEditor.getContent(),
+			url: $("input[name=url]").val()
+		}
+		$.ajax({
+			method:"POST",
+			url:"/admin/addpage/<%= user_id %>",
+			data:formData,
+			visible:true
+		})
+		.done(function( json ) {
+			if(json.success === 0){
+				$("table-container").append(`<h1>${json.msg}</h1>`);
+			}
+			else{
+				var content =
+				"<tr><td>" +json.title + "</td><td>" + moment(json.date).format( 'MMM-DD-YYYY HH:mm:ss') +
+				"</td><td>" +
+				"<button class=\"delete\" data-field-id=\"" + json.id +  "\" >delete</button>" +
+				"<button class=\"visible\" data-field-id=\"" + json.id +  "\" >visible</button>" +
+				"<form><button formaction=\"/admin/editpage/" + json.id + 
+				"\" formmethod=\"get\" class=\"edit\"> edit</button><button formaction=\"/admin/showpage/" + json.id +
+				"\" formmethod=\"get\" class=\"show\"> show</button></form></td></tr>"
+				$( "table tbody" ).append(content);	
+			}
+			
+		});
+	});
+
+	$("#overlay").click(function(event) {
+		var overlay = document.getElementById("overlay");
+		var popup = document.getElementById("popup");
+		overlay.style.display = 'none';
+		popup.style.display = 'none';
+	});
+
+</script>
+<script>
+
+</script>
+
+
+  <script>tinymce.init({ selector:'textarea' });</script>
+
+<% include partials/footer %>

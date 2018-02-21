@@ -1,0 +1,47 @@
+
+<% include partials/header %>
+
+<div class="edit-container">
+	<header class="edit-header">Template Content</header>
+	<br>
+	<form class="form" method="post" action="/admin/editpage/<%= page.id %>">
+		<p class="email-header">Title</p>
+		<input type="text" name="title" placeholder="<%= page.title %>" value="<%= page.title %>" required><br>
+		<p class="email-header">Content</p>
+		<div class="editor-container">
+			<div id="editor" name="content">
+				<p><%- page.content %></p>
+			</div>
+		</div>
+
+		<p class="email-header">URL</p>
+		<input type="text" name="url" placeholder="URL" required value="<%= page.url %>">
+		<br>
+		<button class="template-choice">Template Choice</button> 
+		<input class="edit-submit" type="submit" name="submit">
+	</form>
+</div>
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+    $(".form").submit(function(event){
+        event.preventDefault();//makes it so that the form doesnt send
+        var formData = {
+            title: $("input[name=title]").val(),
+            content: document.getElementsByClassName("ql-editor")[0].innerHTML,
+            url: $("input[name=url]").val()
+        }
+        $.ajax({
+            method:"POST",
+            url:"/admin/editpage/<%= page.id %>",
+            data:formData
+        })
+			.done(
+                window.location = "/admin/<%= page.id %>"
+			)
+
+    });
+</script>
+<% include partials/footer %>

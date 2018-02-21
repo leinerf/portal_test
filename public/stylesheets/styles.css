@@ -1,0 +1,380 @@
+html,body{
+	padding: 0;
+	margin: 0;
+}
+ul {
+	position: static;
+	top: 0;
+	width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#969696;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #D3D3D3;
+}
+body{
+	background:#89cff0;
+	background-image: url("../images/sea.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.container{
+	background-color: rgba(211,211,211,0.7);
+	border-radius: 15px;
+	background-size: 40%;
+	margin:10%;
+
+
+	/*rgba(0, 0, 0, 0.5);*/
+}
+.form-container{
+	background-color: rgba(211,211,211,0.7);
+	border-radius: 15px;
+	background-size: 40%;
+	margin:5% 30%;
+
+	/*rgba(0, 0, 0, 0.5);*/
+}
+ .container-header{
+	padding: 3%;
+	font-size: 2.8em;
+}
+.container-paragraph{
+	font-size: 1.3em;
+	padding:5%;
+	padding-top: 1%;
+}
+
+.form-container header{
+	text-decoration: underline;
+	font-size: 1.3em;
+	margin-left: 5%;
+}
+.form .email-header{
+	margin: 0;
+	margin-left: 10%;
+}
+.form .password-header{
+	margin: 0;
+	margin-left: 10%;
+}
+.form input[type="email"],input[type="password"], input[type="text"]{
+	padding: 12px 20px;
+	margin: 0 10%; 
+	width: 70%;
+	border-radius: 4px;
+}
+.form input[type="submit"]{
+	margin-left:  43%;
+}
+
+.dashboard-container{
+	padding: 1%;
+	background-color: rgba(211,211,211,0.7);
+	border-radius: 15px;
+	background-size: 40%;
+	margin:10% 30%;
+	margin-top: 5%;
+	margin-bottom: 0;
+
+	/*rgba(0, 0, 0, 0.5);*/
+}
+
+header.table-header{
+	text-decoration: underline;
+	display: inline;
+	font-size: 1.8em;
+	margin-left: 10%;
+	margin-right: 5%;
+	padding: 1%
+
+}
+
+.dashboard-container tr:nth-child(even){
+	background-color: rgba(0,0,0,0.5);
+	color: rgba(255,255,255,0.8);
+	font-size: 1em;
+	text-transform: capitalize;
+}
+
+.dashboard-container tr:nth-child(odd){
+	font-size: 1em;
+	text-transform: capitalize;
+}
+
+.dashboard-header{
+	font-size: 1.2em;
+	background-color: rgba(0,0,0,0.5);
+	border-color: rgba(211,211,211,0.7);
+	color: rgba(255,255,255,0.8);
+}
+.table-container{
+	width: 80%;
+	margin: 0 10%;
+	text-align: center;
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 5px;
+
+}
+
+footer  {
+	position: absolute;
+  	bottom:0;
+  	width: 99.2%;
+	display: block;
+	background-color: #969696;
+	text-align:center;
+	padding: 5px;
+	margin-top: 25%;
+}
+.header-content{
+	padding: 2%;
+}
+/*tr{
+	text-align: center;
+}*/
+/*.header-content button{
+	font-size: 1em;
+	width: 30%;
+	height: 5%;
+	background-color: #00C851;
+	border-color: #00C851;
+	border-radius: 5px;
+}*/
+a.add-page{
+	color: black;
+	text-decoration: none;
+	padding: 1%;
+	font-size: 1.2em;
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+
+}
+a.add-page:active{
+	color: black;
+	text-decoration: none;
+}
+a.edit {
+	text-decoration: none;
+	color: black;
+	font-size: 0.9em;
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+}
+
+a.delete {
+	text-decoration: none;
+	color: black;
+	font-size: 0.9em;
+	background-color: rgba(255, 68, 68,0.8);
+	border-color: rgba(255, 68, 68,0.5);
+	border-radius: 5px;
+}
+
+a.show {
+	text-decoration: none;
+	color: black;
+	font-size: 0.9em;
+	background-color: rgba(51, 181, 229,0.8);
+	border-color: rgba(51, 181, 229,0.8);
+	border-radius: 5px;
+}
+
+.edit-textarea{
+	padding: 12px 20px;
+	margin: 0 10%; 
+	width: 70%;
+	height: 100px;
+	border-radius: 4px;
+	border-color: lightgray;
+}
+.template-choice{
+	display: block;
+	margin-left: 10%;
+	margin-top: 5%;
+	font-size: 1.2em;
+	padding: 2%;
+	border-radius: 5px;
+	background-color: #33b5e5;
+
+}
+header.edit-header{
+	text-decoration: underline;
+	margin-left: 5%;
+	font-size: 2.8em;
+	padding: 1%;
+}
+
+.edit-submit{
+	padding-bottom: 5%;
+	display: block;
+	margin-left: 10%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	font-size: 1.2em;
+	padding: 2%;
+	border-radius: 5px;
+	background-color: #00C851;
+
+}
+.edit-container{
+	background-color: rgba(211,211,211,0.7);
+	border-radius: 15px;
+	background-size: 40%;
+	margin:5% 30%;
+	padding: 1%;
+
+	/*rgba(0, 0, 0, 0.5);*/
+}
+
+table {
+	width: 50%;
+	height: 50%;
+	border-collapse: collapse;
+}
+
+a.register-button{
+	color:black;
+	text-decoration:none;
+	/*font-size: 1.5em;*/
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+	padding: 1%;
+	text-align: center;
+	margin-left: 20%;
+	margin-bottom: 5%;
+}
+a.register-button:active{
+	color:black;
+	text-decoration:none;
+	/*font-size: 1.5em;*/
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+	padding: 1%;
+	text-align: center;
+	margin-left: 20%;
+}
+
+a.login-button{
+	color:black;
+	text-decoration:none;
+	/*font-size: 1.5em;*/
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+	padding: 1%;
+	text-align: center;
+	margin-left: 20%;
+}
+a.login-button:active{
+	color:black;
+	text-decoration:none;
+	/*font-size: 1.5em;*/
+	background-color: rgba(124,252,0,0.5);
+	border-color: rgba(124,252,0,0.5);
+	border-radius: 5px;
+	padding: 1%;
+	text-align: center;
+	margin-left: 20%;
+}
+
+.landing-container{
+	background-color: rgba(211,211,211,0.7);
+	border-radius: 15px;
+	background-size: 40%;
+	margin:10% 30%;
+	padding: 1%;
+
+
+	/*rgba(0, 0, 0, 0.5);*/
+}
+
+.landing-container-header{
+	
+	font-size: 2.8em;
+
+}
+.landing-container-paragraph{
+	font-size: 1.8em;
+	padding: 2%;
+}
+
+a.register{
+	float: right;
+	text-align: right;
+}
+
+#overlay {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	z-index: 100;
+	background: gray;
+	opacity:0.75;
+}
+#popup {
+    padding:1%;
+	display: none;
+	position: absolute;
+    border-radius: 5px;
+	top: 50%;
+	left: 50%;
+	background: #fff;
+	width: 500px;
+	height: 500px;
+	margin-left: -250px; /*Half the value of width to center div*/
+	margin-top: -250px; /*Half the value of height to center div*/
+	z-index: 200;
+}
+#popupclose {
+	float: right;
+	padding: 10px;
+	cursor: pointer;
+    border-radius: 5px;
+    background-color: #b4292f;
+}
+.popupcontent {
+	padding: 10px;
+}
+#button {
+	cursor: pointer;
+}
+
+#editor{
+	height: 180px;
+	background: white;
+
+}
+.ql-toolbar{
+	background: lightgray;
+}
+.editor-container{
+	border-radius: 15px;
+
+}

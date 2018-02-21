@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Header</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+  <link rel="stylesheet" type="text/css" href="/content-tools.min.css">
+  <link rel="stylesheet" type="text/css" href="/example.css">
+	<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<script src="/javascripts/moment.js"></script>
+  <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<style>
+        .author {
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="/home">Home</a></li>
+  <% if(typeof user == 'undefined'){%>
+  		<li><a href="/dashboard/">Dashboard</a></li>
+  <% }  else { %>
+ 			<li><a href="/admin/<%= user.id %>">Dashboard</a></li>
+  <% } %>
+
+  <% if(typeof user == 'undefined'){%>
+  		<li><a href="/auth/login">Login</a></li>
+  <% }  else { %>
+ 		 <li><a href="/auth/logout">Logout</a></li> 		
+  <% } %>
+
+</ul>
